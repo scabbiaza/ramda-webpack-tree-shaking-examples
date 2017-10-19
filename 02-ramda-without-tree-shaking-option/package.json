@@ -1,0 +1,13 @@
+{
+  "name": "ramda-without-tree-shaking-option",
+  "version": "0.1.0",
+  "author": "scabbiaza",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.24.1",
+    "webpack": "^3.7.1"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
