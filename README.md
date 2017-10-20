@@ -63,8 +63,8 @@ but [this bug in Webpack](https://github.com/webpack/webpack/issues/4453)
 makes the situation even worse.
 
 Quick overview:<br/>
-Two files export `ramda`.<br/> 
-File `a.js` exports function `a`, file `b.js` function `b`.<br/>
+Two files import `ramda`.<br/> 
+File `a.js` imports function `a`, file `b.js` function `b`.<br/>
 In the result, bundle `a.js` will have both functions, as well as bundle `b.js`.
 
 That means that ALL Ramda functions you use in your project 
