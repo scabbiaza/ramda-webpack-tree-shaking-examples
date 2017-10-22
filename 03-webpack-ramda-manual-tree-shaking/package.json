@@ -1,10 +1,10 @@
 {
-  "name": "ramda-without-tree-shaking-option",
+  "name": "webpack-ramda-manual-tree-shaking",
   "version": "0.1.0",
   "author": "scabbiaza",
   "license": "MIT",
   "dependencies": {
-    "ramda": "^0.24.1",
+    "ramda": "^0.25.0",
     "webpack": "^3.7.1"
   },
   "scripts": {
