@@ -1,4 +1,6 @@
-# Ramda with Tree Shaking in Webpack
+# Ramda with Tree Shaking 
+
+## Webpack
 
 Starting from version `0.25` Ramda comes with Tree Shaking.
 
@@ -10,7 +12,7 @@ Minifier options:
 * flag in Webpack `--optimize-minimize` that includes the `UglifyJSPlugin` behind the scenes
 * flag in Webpack `-p` that invokes `--optimize-minimize flag` and `--define process.env.NODE_ENV="'production'"`
 
-You can find a basic example in the folder `01-ramda-webpack-tree-shaking` 
+You can find a basic example in the folder `01-webpack-ramda-tree-shaking` 
 that uses `UglifyJSPlugin` as a minifier.
 
 Note, that in the `webpack.config.js` file `UglifyJSPlugin` is initiated only for production mode: 
@@ -30,7 +32,7 @@ For example, `splitEvery` function contains an exception with a message:
 `First argument to splitEvery must be a positive integer`.
 
 Try to do next:
-* compile `01-ramda-webpack-tree-shaking/src/index.js`in development mode
+* compile `01-webpack-ramda-tree-shaking/src/index.js`in development mode
   (function `splitEvery` is not used in this example) and 
   search for that exceptional message – you should find it in the dist file
 * compile the same file in production mode and you should not find it
@@ -39,22 +41,22 @@ Try to do next:
 
 Let's compare the dist files compiled in the production mode for `ramda@0.25` and 
 `ramda@0.24`.
-Files `01-ramda-webpack-tree-shaking/src/index.js` and 
-`02-ramda-without-tree-shaking/src/index.js` accordingly.
+Files `01-webpack-ramda-tree-shaking/src/index.js` and 
+`02-webpack-ramda-without-tree-shaking/src/index.js` accordingly.
 
 Both files have the same code and use only one Ramda function – `identity`. 
 They are compiled into files with the next sizes:<br/>
 `ramda@0.24` - 59.2 kB <br/>
-`ramda@0.25` - 51.2 kB 
+`ramda@0.25` - 51.3 kB 
 
 **With Tree Shaking file size is reduced only by 15%**. 
 Remember, we used only one function, so it looks like the maximum profit.
 
-Comparing to the to the **manual Tree Shaking**, when the size of the dist file is 916 bytes,
+Comparing to the to the **manual Tree Shaking**, when the size of the dist file is 957 bytes,
 that is **reducing by 98.5%**!
 
 Example of the manual Tree Shaking:<br/>
-`03-ramda-manual-tree-shaking/src/index.js`
+`03-webpack-ramda-manual-tree-shaking/src/index.js`
 
 ### Nasty bug in Tree Shaking in Webpack
 
@@ -78,4 +80,12 @@ If you use `babel-preset-env` make sure to set option `modules` to false,
 otherwise, Tree Shaking won't work.
 
 The full example you can find in folder `05-webpack-tree-shaking-and-babel-preset-env`.
+
+## Rollup
+
+The same Ramda example was built with Rollup – `06-rollup-ramda-tree-shaking`.
+The resulting bundle in production mode was only **530 bytes**!
+
+It proofs: the reason of the not effective minimization
+is not in Ramda, but in Webpack.
 
