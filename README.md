@@ -77,12 +77,18 @@ Check the example in `04-webpack-tree-shaking-bug`.
 ### ModuleConcatenationPlugin
 
 [ModuleConcatenationPlugin](https://webpack.js.org/plugins/module-concatenation-plugin/)
-wrapps each module in bundle in individual function closures. 
-These wrapper functions made it slower for JavaScript to execute in the browser. 
-However, it helps with eliminating the dead code.
+concatenates the scope of all modules into one closure and allows for the code to have 
+a faster execution time in the browser.
 
+Besides, in the scope hoisted bundle it is more easily to eliminate a dead code.
 Check the example in the folder `06-webpack-scope-hoisted`:<br/>
 the resulting bundle size is **2.45 kB**.
+
+[Note from Andarist](https://github.com/ramda/ramda/issues/2355#issuecomment-338661857)
+> Keep in mind that ModuleConcatenationPlugin is considered 
+experimental at this point (i think, maybe its already past that phase).
+ Im not sure how well it plays with code-splitted project, but Im using it without any problems with a single bundle app.
+
 
 ### `babel-present-env`
 
