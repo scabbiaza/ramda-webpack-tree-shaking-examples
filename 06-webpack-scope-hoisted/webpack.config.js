@@ -15,15 +15,6 @@ module.exports = {
     path: path.join(basePath, "dist"),
     filename: "[name].js",
   },
-  module: {
-    rules: [
-      {
-        test: /\.(js(\?.*)?)$/,
-        use: "babel-loader",
-        exclude: /node_modules/
-      },
-    ]
-  },
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
      ...(minifyJS ? [new UglifyJSPlugin()] : [])

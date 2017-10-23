@@ -74,18 +74,42 @@ will be added to ALL bundles that import Ramda.
 
 Check the example in `04-webpack-tree-shaking-bug`.
 
-### Note about `babel-present-env`
+### ModuleConcatenationPlugin
+
+[ModuleConcatenationPlugin](https://webpack.js.org/plugins/module-concatenation-plugin/)
+wrapps each module in bundle in individual function closures. 
+These wrapper functions made it slower for JavaScript to execute in the browser. 
+However, it helps with eliminating the dead code.
+
+Check the example in the folder `06-webpack-scope-hoisted`:<br/>
+the resulting bundle size is **2.45 kB**.
+
+### `babel-present-env`
 
 If you use `babel-preset-env` make sure to set option `modules` to false,
 otherwise, Tree Shaking won't work.
 
-The full example you can find in folder `05-webpack-tree-shaking-and-babel-preset-env`.
+The full example you can find in the folder `05-webpack-tree-shaking-and-babel-preset-env`.
+
+### `compress` option in UglifyJSPlugin
+
+A bundle can be reduced even more by passing `{compress: {passes: 3}}`
+to `UglifyJSPlugin`.
+
+In example #1 the result is not that impressive:<br/>
+the size is decreased from 51.3 kB to 51.1 kB.
+
+Meantime in example #6, the bundle with `compress` option is reduced more than twice:
+from 2.45 kB to 1.03 kB.
 
 ## Rollup
 
-The same Ramda example was built with Rollup – `06-rollup-ramda-tree-shaking`.
+The same Ramda example was built with Rollup – `07-rollup-ramda-tree-shaking`.
 The resulting bundle in production mode was only **530 bytes**!
 
-It proofs: the reason of the not effective minimization
-is not in Ramda, but in Webpack.
 
+## Contributors
+
+Thank you for the contribution to this project to:<br/>
+* [Ivan Kleshnin](https://github.com/ivan-kleshnin)
+* [Mateusz Burzyński](https://github.com/Andarist)

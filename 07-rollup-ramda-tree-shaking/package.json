@@ -2,7 +2,7 @@
   "name": "rollup-ramda-tree-shaking",
   "private": true,
   "version": "1.0.0",
-  "author": "scabbiaza",
+  "author": "Andarist",
   "license": "MIT",
   "dependencies": {
     "ramda": "^0.25.0"
