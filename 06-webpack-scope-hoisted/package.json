@@ -1,0 +1,32 @@
+{
+  "name": "webpack-tree-shaking-and-babel-present-env",
+  "version": "1.0.0",
+  "author": "scabbiaza",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "ramda": "^0.25.0",
+    "webpack": "^3.7.1"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "safari >= 7"
+            ]
+          },
+          "modules": false
+        }
+      ]
+    ]
+  }
+}
