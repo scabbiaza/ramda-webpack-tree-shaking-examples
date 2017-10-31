@@ -97,6 +97,10 @@ otherwise, Tree Shaking won't work.
 
 The full example you can find in the folder `05-webpack-tree-shaking-and-babel-preset-env`.
 
+If you rely on configuration merging in babel, there is a bug
+in `babel-preset-env`. Check [this issue](https://github.com/babel/babel/issues/6607) 
+to see how to solve it.
+
 ### `compress` option in UglifyJSPlugin
 
 A bundle can be reduced even more by passing `{compress: {passes: 3}}`
